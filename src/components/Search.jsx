@@ -19,6 +19,7 @@ const Search = () => {
         }, 1500)
 
         return () => clearTimeout(debounceSearch)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchWord])
 
     const searchUser = async(search_word) => {
