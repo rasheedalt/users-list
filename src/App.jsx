@@ -1,8 +1,14 @@
-import Search from "./pages/Search";
+import FavouriteContextProvider from "./context/FavouritesContext";
+import HistoryContextProvider from "./context/HistoryContext";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
-    <Search />
+    <FavouriteContextProvider>
+      <HistoryContextProvider>
+        <SearchPage />
+      </HistoryContextProvider>
+    </FavouriteContextProvider>
   );
 }
 
