@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import SearchIcon from "../Icons/SearchIcon";
 import Input from "./form/Input";
 import SearchResult from "./SearchResult";
-import usersApi from "../api/Users";
+import { searchUsersApi } from "../api/Users";
 import { HistoryContext } from "../context/HistoryContext";
 
 const Search = () => {
@@ -28,7 +28,7 @@ const Search = () => {
             }
             setLoading(true)
             const limit = 50;
-            const result = await usersApi.searchUsers({search_word, limit});
+            const result = await searchUsersApi({search_word, limit});
             setUsers(result?.data?.data?.results)
             setHistory((prev) => ([search_word, ...prev]).slice(0, 9))
             setLoading(false)
