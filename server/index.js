@@ -4,9 +4,7 @@ import compression from "compression";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import errorHandler from "./middleware/errorHandler.js";
-import db from "./db/models/index.js";
-import responseHelper from "./helper/responseHelper.js";
+import responseHelper from "./helper/ResponseHelper.js";
 import useragent from "express-useragent";
 
 const app = express();
@@ -20,13 +18,6 @@ app.use(morgan("dev")); // logging requests
 app.use(helmet()); // for security setting necessary headers
 app.use(responseHelper);
 app.use((req, res, next) => {
-  if (process.env.APP_ENV != "production") {
-    res.header(
-      "Access-Control-Allow-Origin",
-      "http://dev.inventory-app.xyz",
-      "http://localhost:3000",
-    );
-  }
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,PATCH,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type,Accept,X-Custom-Header");
