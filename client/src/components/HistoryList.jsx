@@ -12,7 +12,7 @@ const HistoryList = () => {
                 history?.map((history, index) => (
                     <li
                         key={history+index}
-                        className={`w-full py-4 ${ (index+1) === history.length ? null : "border-b-2 border-neutral-100 border-opacity-100  dark:border-opacity-50" }`}>
+                        className={`w-full py-4 text-center ${ (index+1) === history.length ? null : "border-b-2 border-neutral-100 border-opacity-100  dark:border-opacity-50" }`}>
                         { history }
                     </li>
                 ))

@@ -14,7 +14,7 @@ const FavouritesList = () => {
                     <li
                         key={favourite?.ardaId}
                         onClick={() => window.open(`${GNOME_BASE_URL + favourite?.username}`, '_blank')} 
-                        className={`w-full py-4 ${ (index+1) === favourites.length ? null : "border-b-2 border-neutral-100 border-opacity-100  dark:border-opacity-50 cursor-pointer" }`}>
+                        className={`w-full py-4 text-center ${ (index+1) === favourites.length ? null : "border-b-2 border-neutral-100 border-opacity-100  dark:border-opacity-50 cursor-pointer" }`}>
                         { favourite?.name }
                     </li>
                 ))
