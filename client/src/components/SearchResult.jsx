@@ -4,6 +4,8 @@ import FavouriteIcon from "../Icons/FavouriteIcon";
 import { truncateString } from "../util/utils";
 import Avatar from "./Avatar";
 
+const GNOME_BASE_URL =  process.env.REACT_APP_GNOME_BASE_URL
+
 const SearchResult = ({ user }) => {
     const { favourites, setFavourites } = useContext(FavouriteContext)
 
@@ -31,14 +33,14 @@ const SearchResult = ({ user }) => {
                     name={user?.name} 
                     verified={user?.verified} />
                 <p 
-                    onClick={() => window.location.assign(`https://torre.ai/${user?.username}`)} 
+                    onClick={() => window.open(`${GNOME_BASE_URL + user?.username}`, '_blank')} 
                     className="flex-grow font-medium px-2 align-middle my-auto"
                     >
                     {user?.name}
                 </p>
             </div>
             <div
-                onClick={() => window.location.assign(`https://torre.ai/${user?.username}`)} 
+                onClick={() => window.location.assign(`${GNOME_BASE_URL + user?.username}`, '_blank')} 
                 className="text-sm text-right font-normal text-gray-500 tracking-wide max-w-[50%] my-auto">
                 { truncateString(user?.professionalHeadline, 25) }
             </div>

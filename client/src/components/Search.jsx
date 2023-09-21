@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import SearchIcon from "../Icons/SearchIcon";
 import Input from "./form/Input";
 import SearchResult from "./SearchResult";
-import axios from "axios";
+import usersApi from "../api/Users";
 import { HistoryContext } from "../context/HistoryContext";
 
 const Search = () => {
@@ -27,15 +27,14 @@ const Search = () => {
                 return;
             }
             setLoading(true)
-            const result = await axios.post('/entities/_search', {
-                query: search_word,
-                limit: 50
-            })
-            setUsers(result?.data?.results)
+            const limit = 50;
+            const result = await usersApi.searchUsers({search_word, limit});
+            setUsers(result?.data?.data?.results)
             setHistory((prev) => ([search_word, ...prev]).slice(0, 9))
             setLoading(false)
         } catch (error) {
-            alert("Ann error occured")
+            setLoading(false)
+            alert("An error occured :: "+error.message)
         }
     }
 

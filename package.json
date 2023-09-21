@@ -1,0 +1,23 @@
+{
+  "name": "torre-test",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Rasheed <rrasheedalt@gmail.com>",
+  "scripts": {
+    "dev": "concurrently npm:dev:* --kill-others ",
+    "dev:client": "cd ./client && yarn start",
+    "dev:server": "cd ./server && yarn dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasheedalt/users-list.git"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/rasheedalt/users-list#readme",
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  },
+  "dependencies": {
+    "husky": "^8.0.1"
+  }
+}
