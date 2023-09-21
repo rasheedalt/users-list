@@ -5,8 +5,6 @@ import SearchResult from "./SearchResult";
 import axios from "axios";
 import { HistoryContext } from "../context/HistoryContext";
 
-const search_url = "https://arda.torre.co/entities/_search";
-
 const Search = () => {
     const [searchWord, setSearchWord] = useState("")
     const [loading, setLoading] = useState(false)
@@ -29,7 +27,7 @@ const Search = () => {
                 return;
             }
             setLoading(true)
-            const result = await axios.post(search_url, {
+            const result = await axios.post('/entities/_search', {
                 query: search_word,
                 limit: 50
             })
